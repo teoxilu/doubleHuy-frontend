@@ -2,8 +2,23 @@ import React from "react";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
 const ProductListItems = ({ product }) => {
-  const { price, category, subs, shipping, sizes, brand, quantity, sold } =
+  const { price, category, subs, brand, quantity, sold } =
     product;
+    const sizes = [
+      "37",
+        "38",
+        "39",
+        "40",
+        "41",
+        "42",
+        "42.5",
+        "43",
+        "44",
+        "40.5",
+        "41.5",
+        "43.5",
+        "36",
+    ]
   return (
     <ul className="list-group">
       <li className="list-group-item">
@@ -40,16 +55,6 @@ const ProductListItems = ({ product }) => {
         </li>
       )}
 
-      {sizes && (
-        <li className="list-group-item">
-          Sizes
-          {sizes.map((size) => (
-            <span className="label label-default label-pill float-right">
-              {sizes}
-            </span>
-          ))}
-        </li>
-      )}
 
       <li className="list-group-item">
         Brand{" "}
@@ -60,9 +65,12 @@ const ProductListItems = ({ product }) => {
 
       <li className="list-group-item">
         Available{" "}
-        <span className="label label-default label-pill float-right">
-          {quantity}
-        </span>
+        {quantity < 0 ? (<span className="label label-default label-pill float-right">
+          0
+        </span>) : (<span className="label label-default label-pill float-right">
+        {quantity}
+        </span>)}
+        
       </li>
 
       <li className="list-group-item">
