@@ -6,7 +6,7 @@ const UserNav = () => (
     <ul className="nav flex-column">
       <li className="nav-item">
         <Link to="/user/history" className="nav-link">
-          History
+          Orders History
         </Link>
       </li>
 
