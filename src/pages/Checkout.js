@@ -97,7 +97,7 @@ const Checkout = ({ history }) => {
     products.map((p, i) => (
       <div key={i}>
         <p>
-          {p.product.title} ({p.size}) x {p.count} = {p.product.price * p.count}
+          {p.product.title} x {p.count} = {p.product.price * p.count}
         </p>
       </div>
     ));

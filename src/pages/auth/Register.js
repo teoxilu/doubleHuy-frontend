@@ -40,6 +40,7 @@ const Register = ({history}) => {
         onChange={(e) => setEmail(e.target.value)}
         placeholder="Your email"
         autoFocus
+        required
       />
 
       <br/>
