@@ -7,7 +7,9 @@ import unknown from "../../images/unknown.jpg";
 const SideDrawer = () => {
   const dispatch = useDispatch();
   const { drawer, cart } = useSelector((state) => ({ ...state }));
-  cart = undefined || [];
+  if (cart == undefined){
+    cart = []
+  }
 
   const imageStyle = {
     width: "100%",
