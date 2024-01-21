@@ -63,11 +63,14 @@ const ProductCard = ({ product }) => {
 
       <Card
         cover={
-          <img
+          <Link to = {`/product/${slug}`}>
+            <img
             src={images && images.length ? images[0].url : unknown}
             style={{ height: "230px", objectFit: "cover" }}
             className="p-1"
           />
+          </Link>
+          
         }
         actions={[
           <Link to={`/product/${slug}`}>

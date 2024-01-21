@@ -80,24 +80,28 @@ const ProductCardInCheckout = ({ p }) => {
   };
 
   const handleRemove = () => {
+    const confirmed = window.confirm(
+      "Are you sure you want to delete product?"
+    );
     let cart = [];
-
-    if (typeof window !== "undefined") {
-      if (localStorage.getItem("cart")) {
-        cart = JSON.parse(localStorage.getItem("cart"));
-      }
-
-      cart.map((product, i) => {
-        if (product._id === p._id) {
-          cart.splice(i, 1);
+    if (confirmed) {
+      if (typeof window !== "undefined") {
+        if (localStorage.getItem("cart")) {
+          cart = JSON.parse(localStorage.getItem("cart"));
         }
-      });
 
-      localStorage.setItem("cart", JSON.stringify(cart));
-      dispatch({
-        type: "ADD_TO_CART",
-        payload: cart,
-      });
+        cart.map((product, i) => {
+          if (product._id === p._id) {
+            cart.splice(i, 1);
+          }
+        });
+
+        localStorage.setItem("cart", JSON.stringify(cart));
+        dispatch({
+          type: "ADD_TO_CART",
+          payload: cart,
+        });
+      }
     }
   };
 

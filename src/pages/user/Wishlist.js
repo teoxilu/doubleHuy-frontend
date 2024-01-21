@@ -19,10 +19,15 @@ const Wishlist = () => {
       setWishlist(res.data.wishlist);
     });
 
-  const handleRemove = (productId) =>
-    removeWishlist(productId, user.token).then((res) => {
-      loadWishlist();
-    });
+  const handleRemove = (productId) =>{
+    const confirmed = window.confirm("Do you want to remove this item from wishlist?")
+    if(confirmed){
+      removeWishlist(productId, user.token).then((res) => {
+        loadWishlist();
+      });
+    }
+
+  }
 
   return (
     <div className="container-fluid">

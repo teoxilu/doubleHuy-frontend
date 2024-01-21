@@ -5,6 +5,7 @@ import { toast } from "react-toastify";
 
 const Password = () => {
   const [password, setPassword] = useState("");
+  const [confirmPassword, setconfirmPassword]= useState("")
   const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e) => {
@@ -28,7 +29,7 @@ const Password = () => {
   const passwordUpdateForm = () => (
     <form onSubmit={handleSubmit}>
       <div className="form-group">
-        <label>Your Password</label>
+        <label>New Password</label>
         <input
           type="password"
           onChange={(e) => setPassword(e.target.value)}
@@ -38,9 +39,19 @@ const Password = () => {
           value={password}
         />
         <br />
+        <label>Retype Password</label>
+        <input
+          type="password"
+          onChange={(e) => setconfirmPassword(e.target.value)}
+          className="form-control"
+          placeholder="Retype Password"
+          disabled={loading}
+          value={confirmPassword}
+        />
+        <br />
         <button
           className="btn btn-primary"
-          disabled={!password || password.length < 6 || loading}
+          disabled={!password || password.length < 6 || loading || (password !== confirmPassword)}
         >
           Submit
         </button>
